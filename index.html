@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ChellyzChecker</title>
+    <style>
+        html,
+        body {
+            margin: 0 auto;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            width: 100%;
+            height:  100%;
+            background: #000000;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+        }
+        #top, #duplicates {
+            padding : 10px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #ffffff;
+            display : flex;
+            justify-content: center;
+            align-items : center;
+        }
+        #middle {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #grid {
+            color: #ffffff;
+            display: grid;
+            grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto;
+            grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-sizing: border-box;
+        }
+        .universal1 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+        .universal2 {
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+        .universal3 {
+            grid-column-start: 5;
+            grid-column-end: 7;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+        .logo {
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            margin : 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        .support {
+            grid-column-start: 7;
+            grid-column-end: 16;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            display: grid;
+            grid-template-rows: auto auto;
+            grid-template-columns: auto auto auto auto auto auto auto auto auto;
+        }
+        .synthetica {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            grid-row-end: 13;
+            display: grid;
+            grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+            grid-template-columns: auto auto auto;
+        }
+        .organic {
+            grid-column-start: 4;
+            grid-column-end: 7;
+            grid-row-start: 3;
+            grid-row-end: 13;
+            display: grid;
+            grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+            grid-template-columns: auto auto auto;
+        }
+        .spirit {
+            grid-column-start: 7;
+            grid-column-end: 10;
+            grid-row-start: 3;
+            grid-row-end: 13;
+            display: grid;
+            grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+            grid-template-columns: auto auto auto;
+        }
+        .corruption {
+            grid-column-start: 10;
+            grid-column-end: 13;
+            grid-row-start: 3;
+            grid-row-end: 13;
+            display: grid;
+            grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+            grid-template-columns: auto auto auto;
+        }
+        .exile {
+            grid-column-start: 13;
+            grid-column-end: 16;
+            grid-row-start: 3;
+            grid-row-end: 13;
+            display: grid;
+            grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+            grid-template-columns: auto auto auto;
+        }
+        .culture {
+            grid-column-start: 16;
+            grid-column-end: 19;
+            grid-row-start: 1;
+            grid-row-end: 13;
+            display: grid;
+            grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto;
+            grid-template-columns: auto auto auto;
+        }
+    </style>
+</head>
+
+<body style="width: 100%;">
+    <div id="container">
+    <div id="top">
+        <button id="zoomin" style="padding: 10px;">Zoom In</button>
+        <button id="reset" style="padding: 10px;">Zoom Reset</button>
+        <button id="zoomout" style="padding: 10px;">Zoom Out</button>
+        <input type="text" style="width: 64ch; padding: 10px;" id="address" name="address" value="xch1mxuzqqte2kgu85he6jv8k52qcpynkfz9na4v69203y54uejgk3rsh6d2yr"/>
+        <button id="button1" style="padding: 10px;">Check</button>
+
+    </div>
+    <div id="duplicates"></div>    
+    <div id="grid">
+        <div class="universal1"><img src="https://assets.mainnet.mintgarden.io/thumbnails/96609a9d554257ac573f8e7302f92c332c93b755ceba5c25a1fac20557190d08.webp" id="Baby"></div>
+        <div class="universal2"><img src="https://assets.mainnet.mintgarden.io/thumbnails/9ff04228e8fe781898c2ec9c3f86fbc2edb59f8a51194bf249c7202c8cde52a2.webp" id="Seraphim"></div>
+        <div class="universal3"><img src="https://assets.mainnet.mintgarden.io/thumbnails/3a37209ef2adf9edad936b88334d806c2b57fb06ffdf9e9f1fb317a43deaf431.webp" id="King"></div>
+        <div class="support">
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/dc65b6b0b7a3e280cde7bf7a554d75a9c2816e215b403d9618257670af4562d9.webp" id="Node Cache:EB-x2"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/af85b2e01937e3b95926074054887e223951636c54e669b87f588e9fc327c8fb.webp" id="Legacy Targeting Core"></div>
+            <div class="logo"><img src="logo.png" style="object-fit: contain; width: 60%" id="logo"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/622499b29170c2a8289ac5ddfcccdd7b250ba444978b73ff5525aebdb33dd959.webp" id="Prism Gate Divergence"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/c716ac14614fe925fb69319bad11d37c782e3e97a9ba81136e470bcacea0cb13.webp" id="Violet Cube"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d4a41049055d6a965f4024c44336ce9700db017ea55bc32de13ec899dc0249c3.webp" id="Healing Spirit"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/c08170b44147de0fd4a84e31317c6405daeb8beea87777f56ae323ffbd89bf65.webp" id="Rain of Rebirth"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/cfbf8970415010f50ffbe2682867a5b23ce785f46cf3cd261fa38f0776d07629.webp" id="Cleansing Gate Construct"></div>
+
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/2da657969c9e8c3fe5fc9636d56247c671821e8adf489ab997ac8a46ef6752ae.webp" id="Energy Collapse Core"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/3bcfc4e6496b92f6982afbe2af6211e55bdcd7f4da38a19ac317d52ca9451135.webp" id="Chance Callsign Retrieval"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/37fe5661900404919d037370a0ca383bc208fab949288e434a3f4157336d1726.webp" id="MemPool Restoration"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/96f0aceca88d08cad9a8420fe06f4128beb1789cff3411a29583b401be69b81f.webp" id="Bloom Converter Schematics"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/375e1b0521ae0044ea8c0ec592c6a09be06298330492b86e45125cdafae55505.webp" id="Denied Access Memory"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/62549c66febeb37ea37329ace9da2bb49d6df1766fa42ee6a4cd6aa67a8505b3.webp" id="Converter Node"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/349770f1b1aceaedc89e78b1ec6311ae570819c740007bfb42219362631e818c.webp" id="Overclock Hack"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/97246b88307038d343fa3050770887df9e1c1849c340f6a4f685b1556dc42f80.webp" id="Ghostshell Deployment"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/c1dc979413b037cbb95fd2fc6938e63109b98970919a66772017f8286d1239fc.webp" id="Piercing Core Module"></div>
+        </div>
+        <div class="synthetica">
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e444e2f62536638fc018251e31c6b389c2ec034a8fceaaafb95aba9dc6ed13aa.webp" id="Boom"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/96524881e23b605cc8809da2c598c9de23cfb06f16befc379c09995a93e23996.webp" id="Blast"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/3adf2c554333e837d33ccf457f8297a5391679445be090d6a26ed9a2bcc45405.webp" id="Thermo"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/857e87eade9224aa772cc2dc540413879b33ce45b701a310d6ea3553758d5357.webp" id="Cottage"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/06b8d1ba687fc7f1bbeef056f78e3b9c5b469fe8d7a440e8e51630ad09a6672b.webp" id="Chimbley"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d9d2ae4840cc724920c810b8577dfdebfdfe3baeec6e13a6be20f68dd7e4d8ef.webp" id="Cobbleroot"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/b4194b5bd7278d2ed78f12f51de3ff7226267347725a38e9ef924dab62c3462c.webp" id="Oculus"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/4fe03f93d08435a415421ddfddf8ef7fa9634c702a27b1e4eff65ebf1e72c105.webp" id="Oculon"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a1690db76ece56f343b8626be4ff852d0021ec04af5aa9eb2089ffc9ba51ca22.webp" id="Ocunet"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6392b21dc1eddbb04e79835c902fccf9b87e23445a1455df894178d7c7209dc3.webp" id="Slimer"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/86e02f20176e54b7433ea517898178988876dfb040ff9b817d43f9bb60adbd2f.webp" id="Oozion"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d31425c50b26973fcad151c70ba02cf4f7fd1207f67d79a233174da929a1e469.webp" id="Radionox"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a8e2ad60e136e6047e8552b0cba62b4390970012a6094cb1504b7c84616a4045.webp" id="Splotch"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6ae3e2f5b483ade00f835edd6adf95d331e5c7dfa16ef1d8593aa8ca3d80b8b8.webp" id="Wuzzit"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/10f17198fc67819182c02edec885cd45d22e7ad9efb45f787a8c45f15fdd2b44.webp" id="Zigfuzz"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/f209be4fa7a1c0a4cb2a7d0aab72744f742183e3dfc9e097772b13a25f470d82.webp" id="Mega Brain"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d09802a44eaf3a2035ae41a31fdcf085ba3d1d22d22398e1eaee5334301c8650.webp" id="Cortexor"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a7c997229abadf3e8c096f320766a483b4edde720d7acb98ec2a89c9ec45d703.webp" id="Neuroburst"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/81a37bbab65aaa696adce07d5e0f1ca86a14f5bbf4505020c3766979b13f334c.webp" id="Koosh"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/75ffd9d52d360eafdada6acf6a202671172521826bf7a07b6c19fc9e36ce6951.webp" id="Kooshmax"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e695aa97bb5dc60c94f9210e7f4c1112fd6a43def5821ddc22ce34b31d38a739.webp" id="Kooshultra"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/cc1f7de25c89db5d4712f2b6e9be63dfab2e237fdfa3099ebcd54b59625bd09e.webp" id="Cyber"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d3f2de6d08d6849f7ca55a3edd8fd8ba7b7c4cc468d8f61e88d17aa1511efd63.webp" id="Node"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/67cefaba5de71018cd937871b2022cf5a4cf7801a8fad79df344a803f650dd31.webp" id="Metralith"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/464d3a6fa41322cb6c89366dfbfc135b7ecf657b7611a208e27f8614c4f0b579.webp" id="Midas"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/edec4ff58f1759138c3f85b319112e0a5440065e235bcccb514fa656206022d1.webp" id="Midrith"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e06e8bd65934eb81cb2184891c41c3c43115b5410bf9fa16b3b042a63efc713d.webp" id="Midalux"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/2daa49bd7831ca58952cb2c30790eb3f536cd3640eea67ff420227755832ebad.webp" id="Frank"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/0b3bfed41513619373cd880e95942b418b255d567109154da4c84dd3f54265c9.webp" id="Frankie"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/153e23f18b642321fd55fea8d3423f97ff3c8663c3b7d672fc3139b3cb18114e.webp" id="Franklin"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/8be837783a4fd69f19b57f1527d1e6fca5de013ff98a5f4d81570273f0d76511.webp" id="Shippy"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/2c37994471655a9051281127160403699bd2d6ac370c826ec138e1768de07065.webp" id="Boxbyte"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/bc32cc527d60d9f7638ee72eeb1863e2ed9344ef881b49e8a0abfb5641ac1e59.webp" id="Corrugon"></div>
+        </div>
+        <div class="organic">
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/93e7881d658e24937326da3c54a5958f1e518fe885073eedb776ff3415f45d73.webp" id="Bush"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/76ddbaaf4b0ef1e75ac7e29c223c44b49a51afe50fe421a041f5ac0c43c40757.webp" id="Hushberry"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/08ae9988861a2d51a7d17700c0d13838304c45c15b4788492caccab20bed8c02.webp" id="Horeb"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/752bad46b3695997fd9100aae8aa8201d8aa2e02e9e51221a6289c6cb85e840f.webp" id="Beet"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/26b53996e998501bbe7ce37a1ab3bd6d4c2c820ce1b3a4fd25a7653ddf71b9cf.webp" id="Beetwig"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/c7a96f43625e4e8cf155c1cac569752619bd1d96de99fb9ba9004ebbb7593cc3.webp" id="Beetgrim"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/19f32c48180898ce09f0b602fc9499d9f7ec093cccf22233b3a8836552d90c05.webp" id="Strawberry"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/77c8401f3b4ed28e1176aab58af4b03e78e91612c119be8dfb0804dbcd6d5cc5.webp" id="Strawbash"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/c0cf55fb0075629277b706a479f68f042d1e45e87ac1b4b10b03afb5affd25d7.webp" id="Strawkhan"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/9a2d7fecfcc5642c336856f1a1e32e448c6c5cb0ea46cc134482d1c171ccec3e.webp" id="Shroom"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/54189594c17dbb10f28f9044d502ee4cbc0e14fc4c5a7008f3d2d91515559e58.webp" id="Fungloom"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/7e0f0104d0a73dcae5d3170ab12c8c47f3a851a10d202134368e2e2ecf2545fc.webp" id="Cybin"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/44b9fdccd1cece239b96770749422ada0a2d2dd138c82784226c9407ca9d9531.webp" id="Oasis"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/edf37691e11217650bbe72f803f5c3314f5ef35fa44d7ff2d813e8423cb43af7.webp" id="Sunset"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a547faae121423e4c3b4b7c4c0bcb3bc3a6fae3b6758b172f491f49379e3c03d.webp" id="Twilight"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/c9504a8ed2bb0a98c187ef87e005faa6cfeaf2476fc553f0234c28f50d7536dc.webp" id="Coco"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/9a1acd2ecc630d254fb71d3c3327530789132aee7ba3b043e31d447972f99d8e.webp" id="Cocorok"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/06414780047afd162cd8ee2f217075f43f64cb5c843ae85076e317f7a47798cf.webp" id="Cocomax"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/7e6bb916e06c7c6484fcee5ea1cd55dc18d60e5ba64805604ecd388a15da554d.webp" id="Peacock"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/f56136b4d0c51fe8cc7bca2ad0b40cebef3f468f97bb1afd803567a82acf7d9a.webp" id="Plume"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ebc58bc587c6756c6dfc6fc333c40bfa093d22fe416b04d669e85c99487ffa31.webp" id="Plumora"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/7a212612c2fba1c296ef11713890430e0df58301c890801983ed46564ead122b.webp" id="Smooch"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/9d83c80a80f97b0aee3b7efbdd96e47ae3261fd8e1556254591e7df58b5ea395.webp" id="Cling"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/59afd2c375a9bf85d51c44550a8f85e2495b9356835e5ebe609ebaa9d2cf9b3a.webp" id="Lilith"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/3acfe60fb8d0adf13d1e10cd5ea5262c9c95c48f8a3061a82eb4a4a3a05f8d0b.webp" id="Sharky"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/4940259689e9e9021c3fb3e0c0f68333cacebeea078c9da04382026def4eaf16.webp" id="Razorfin"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/b95c0c093ee057fe67104ec042dad536c91b1272c20c5213a610667eeff7144c.webp" id="Ripjaw"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/595918b558eacec1283ad01bd2f1b29156aa042d3787e116544d17f84ce8b79b.webp" id="Honeybee"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/0fce2c5bc6721fad6fa26516b6d4c55ce7f620109a42f2342fcbefcb800ceb58.webp" id="Nectara"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/f24248c794a63af8a2d9006a87149443c7030f98e11609fa70a3f71957803251.webp" id="Waspina"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6f3aedba4a3e1d6a5b2a9f2647d003d838c58bbad17e1ccc6c9a4daa24d3b9c0.webp" id="Egg"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/b6849eea664ccc44705eca8a09aed4e85840375fbe151778c1523d291764da9c.webp" id="Hatchadon"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/2f0714e293dd9ca139a79ea39b27ee2528ef6655a4bbe6397b2f7b2de6aa08b7.webp" id="Cluckanox"></div>
+        </div>
+        <div class="spirit">
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/5d9dd83e84aa4f21dbfa414c4a0ab153d075a64c744b5c32a2137f2d2e92cb80.webp" id="Pompeii"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6425c17549bfba9a0f6ff742842abc70066f6a8f83255bfcdf64fe9778e50f2b.webp" id="Pomptera"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/87c8f9cef66087b15418c4f06cb684483fde4843bc0df3119fb07994928df7a1.webp" id="Pompheral"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e71f68c5f5db87d4eb988a528797cd597a0c55a17f5275eaa89555a23c0bdf2d.webp" id="Take-Off"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/2eb1d58663db43224bc3ac4e407fd99eab80fe471ffe3dfd8906b133efa9619c.webp" id="Impact"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ce3628a86e2a463e5319f7c439fc4e31f10d7f3474e091f9833ce3e193b37826.webp" id="Fissuron"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a907f7382fea29d3b58c746c5fe99c19140dc8262f3b92eee7ebadfb2b3f8f35.webp" id="Valhalla"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/0206522e6bc16d2f4e8a6371117015f92ac866823b928ee564050b2c1cd1a0b1.webp" id="Runebrae"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/37956ae67ad850397c64fed40c681addbda5bc27130a99ce27e1e6b341440df0.webp" id="Thalurein"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/af29387dde0888deeed4cb19d8cbf08d2160dda1b0259e42f106fabcfb0d9f32.webp" id="Puff"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/f331fdc61314fbc474b0a1c640085f863eddde1aee67a1e8914b760661ada76d.webp" id="Drax"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a53a7e467972843b7526da75fc0cb554b1c5ca2eba5d1f8f808202112a083df2.webp" id="Leland"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/cd43378f723aebacbb58be1e7523c1bb374d0f4bc94c2b69157d43812c60ff65.webp" id="Gem"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/feed5196a82316c06895904e97e1842913fadb3a10f65e2b928912642a4efa77.webp" id="Dazzle"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/7b4199989dd6c8f5925fc89d8a0789bf28f58787470873aa573bd936ec5eccff.webp" id="Carat"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/dbebc7e576ebf73b2b4f5258e3cfbf3ada0e5d339e24a775b2d939ee3ba2f98c.webp" id="Ramesses"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6d4928ebece28158d0947041d38973e769c69d1f3b9ec0ae52fc2eff9a9695bc.webp" id="Ra'messu"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/968c61d5f73f71e0385c6e8d1b65da521a0f588c6dc8f588e023345ec96d6a37.webp" id="Ra'theon"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ad23ff3756f1c6285affbabb9ae4ea549a42af062700e0321d6cd3f665a45eba.webp" id="Ra"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a2d001492b01f22cb018ce889fc82b0a78a0e442f96be4c76d1ff8ff177df5f7.webp" id="Ravok"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d82601729129cd24d672a5fbdd8e0720adeda12a6fe654f52f874e200c0a8904.webp" id="Sunscepter"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/c1c4649bf54065b9129e186c6a17169ed8d83912837adfabe05ee6d5ab40f6c5.webp" id="Misty"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/8c6077c7d2f4de3dd4dadfc288fb4c0c92b6137ddc6aeeee359840d713ab0bdb.webp" id="Mistveil"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/52d7ebbc1d62d1bf9043f97ae0fbf8b15874f1754703bd35bfbd2c92abc14719.webp" id="Mistara"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ff7396f6f48ba0579ae319aaeb0cc4205493052f7c4d20f8c834fa7bd27fa8e2.webp" id="Campos"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/0cf6b702fe7571fd091c234cec8b075c511dfeb46213be0586220c25555826a6.webp" id="Pradera"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e826e91a404aad16847f6a93a68c0f51d3b2b1180a60b5812baba29ac866016f.webp" id="Lapaz"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/c3b473eed0396ad6befe3c342144990cf8bd7165b5a5f873504c49c31befb465.webp" id="Storm"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/5a959d70be47305fa645fa7c5c0e1fcfc7ffaecb40710a595a583b685e5dd08f.webp" id="Thundrall"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/f78c3bb7d0204e63fd7e185c6b2313e12a8ecb566299eec1daee007279f6b323.webp" id="Zephyrix"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e1793f2d464841e8e9b8d34e05175609815141218f87ae03621290b5f6a2c0d1.webp" id="Nibiru"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/167ee42567f522e9573591873d81f570244d7f24f01bcbaed036679f70d528c9.webp" id="Kronibiru"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/9995fcff39fca7c6c3cb30f23363f40d3f451e5fff109bb269e2af27fde13da6.webp" id="Obliviru"></div>
+        </div>
+        <div class="corruption">
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a9085b675e0eda351cec277662c3ea06cc9b4a2ee88d9fecac4843c7a2b7058b.webp" id="Hellraiser"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/df34ef1b75b6dabfc593df349bb6bfb538fbf34d441c2f1cf026ef9a7cdecb19.webp" id="Hellthorn"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ff9a0010434cbcf105147274e6336dd39510ecdcadce9c4137f2c9ca8df8d1d0.webp" id="Hellbane"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/f141004662a3ea28f8d9e5094d8bc0e42b372cbb94b84b604ac54121b0f4005c.webp" id="Elmo"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ba280a3d2c94c1bef820b32b302a9759f2ec8cc94dfd64897cbe318b24d1ad7a.webp" id="Elmer"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d916ceb8b8fb83b44ec8261dfbfadb610459da305c6ebb747a3dac67d528065d.webp" id="Anselmo"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/56c2d5e45e964e60be4f5ec5f572378bc9f3d9b0dfdb2373fbd790f2b11f1788.webp" id="Meal"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/c18dd66bb61c8c2c61f10a2854e3202b325c6663ed73ec23bc8e5d4e18b1a854.webp" id="Feast"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/18bf5b69dd2b920f5eca93bc08a1541268196d93bc737c63b5c767adad4ba53a.webp" id="Omegarot"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d247aad98259c2e45aefd8263cdb8b5e165cbae96d761a63f8812b6f137da0b4.webp" id="Sprite"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a04f2c1b155dbd4a4bfc6a4f332c71d89d48745f831df6e738266b69e99255fa.webp" id="Skivix"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/eb9f3121ca36998f7a944b944e373bcfa6f823ae3df9ed71570ff756cc98543f.webp" id="Shatheon"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/bc3b7a5b398e67bccb9748356273eac77f440075b61ea636087c7611d27498c8.webp" id="Neo"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/fa6333edcdb16a271471f8bc35f1de1f14745459b2da0e8da00bd29951eb50af.webp" id="Neobyte"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/4c8598367bc9775803d4939679d8dcef1ae441732a88a9c8e7c40f877a4e68ce.webp" id="Neoprime"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/cd7be19a8501becccda8f0551068b18456981dccbfb261e0d859cbcbd4633028.webp" id="Angel"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/81d9de7cf0c0bb3fc8abe25e8504eb02fedaa66c5fb6a8ed064e243b5c870b4d.webp" id="Wretchel"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/fa3ada67ec0484ade5af2377d7f94aace6c6ef4888814f2754ec454325fb0b23.webp" id="Wraith"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e1ca589fc11ff821c6da398160bfe51e0e795cf9aea630c3de142276ba99d74f.webp" id="Sludge"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/57c58fc6404801db665bab372269168316326f674579caf30fa835ab0076d24f.webp" id="Sludgion"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/0bca1be233a237c234719031e9ac4898404a2f044e0a9936bd4e1145edf3b0e5.webp" id="Sludgionyx"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e97858c0e162580fd11afa30158cec8bd24c8b8c8d133932246e15846a1e50e3.webp" id="Magic"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/9b1abdf857715d9ead41ec2a15a50b3d4600ee8503a1a6a804ccde7416f9c8a9.webp" id="Spellure"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/9487f3e0c2a3154fe67f060dc4ff7b2e77f8a2ed0c9de11b53ef28442d47cfc1.webp" id="Ipsissimus"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6d1bfae40a7ad5741517eab61678c0b0deb72e6eff0c5a0f09a5d6a192f96c78.webp" id="Poltergeist"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/dae199b0bf61ba1ee4c0b46cd1452b2f767d65116873dfaf0c6407e2496e6ba9.webp" id="Blightgeist"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/afb466c94202c99d1da7565eb7f3b7e5767d8816da2cb3b7fcfb8df57bcec819.webp" id="Ultrageist"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/5b83210698e8c39b1ef43f3dd49b636aa5e826bcd8071d40ec716c0a2e829868.webp" id="Jailbreak"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/eb42bf4040faf6d767ace8de12bca2e10c6834e0d06893f8a73ab4bc3f2c4ecc.webp" id="Escape"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/0d8b3b6c7c156fe31b35b1682f6314dbd6fafa9dc737a123c1d7ee84db6e8228.webp" id="Shackles"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/4ab35dfb998a8cc1306192139f68b79a499c42d805620bcbdcf5e2f0f583116e.webp" id="Roy G. Biv"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/1bd4b0a7392263545d591fa26439cf7db49833b1aa13fb3be5998d4f2d65b25b.webp" id="R.G. Biv"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6c6113804c05600e1d801e495f8feb6a55f59857e3f2fd971c0430b361624bdc.webp" id="R.G.B."></div>
+        </div>
+        <div class="exile">
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ffc91371683d2bea9f5e90ac3a5586e3799ab8f18fcae462ea2bb15688efde06.webp" id="Cloud"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e258e8618188c310fc32d52361c68070a1687ad2947e883d8bbadf0951591c78.webp" id="Stratocloud"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e4f30532ff1637af13322af2897cfce66d6e10a703331348978e447c761f2ed3.webp" id="Exocloud"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/1fce82cd972dfeecdd89ecf81364d73f1c55b3be7db6e61ff2d13d95eacfc304.webp" id="Goop"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6ff503958ae618027f1db049bfc7cfce3a48ddbbf2c288103fc767d28e317825.webp" id="Sedimelt"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/bd2a61cb972da9faddb8a9e859d8cbd357bfdd48868439a517b2422b68d3ce61.webp" id="Crystallyx"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6e967348ffa0a24a9c4edcec3268852f13ce952e9152c9d31a5b31a3733d0ba5.webp" id="Bubbles"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/28c841c6f00c69ff3be185ec5ab953ea25b67dc2282d99dc90f1f29c6e7002d5.webp" id="Bubblar"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/8ee9806320354ebf8f255015e9b39f76db037b20b85561040e0628e7e793c8ee.webp" id="Bubblagon"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/41e8190732dc59cc114466e5a7a689703cce49265834c4c6c3bb320970cf1b99.webp" id="Fossil"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/1f3982a8c87f7ec0d5edcc560b3eca059333e22f5516be34b367191ffcf6640f.webp" id="Petrify"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/1d588d2f82937cabeb3e23e62c907030d157b46e647926b531a71570fdaafb25.webp" id="Opalite"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/09db86ab484be296efd33d586e033160bfbc95e3842a70b7db31af10fc311414.webp" id="Porter"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/7b8c1b1541cc42c50b4f27270af867436ed351540ea1522692876e2a6023a63b.webp" id="Freightor"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/20654f59a200b0fe08db20fe87a161fcd81ca8275d3a8afdc94ca7a9973d6ca5.webp" id="Hauldrin"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d5f8b61b96fe1f6633773eaf9266604372ea3ef424e30883d4b7890b616f3eb7.webp" id="Fireball"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/b0f93ec88fa8670697a459b98c392d56c7784145e8b9a711341c8d257daff2e6.webp" id="Arsonball"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/f5efac9a3afa92b74f9f6d5fb3c9ba56f5015b62ae53de8120df15cb56a270c9.webp" id="Holofire"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/2fae7851f972a2e83330a9224174a0d23d1224e1640925f663e02111c2be6b25.webp" id="Hex"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/210ce0a25c4e97bed17bf3b29096e17982d5e73a77f1222e8c8e5280dae302f9.webp" id="Hyperhex"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/9dce6ecf57d548da664008f64deefd78763f33bada6a525a0443fda2741f8160.webp" id="HYP3RH3X"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/3416d58098e53216d8d4801906bd08cc14dc378d4521545f2ffff6d5562d4c17.webp" id="Sweets"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ba8070053edd5b541adf5ce162d9bfb77f336ed9656edc0819348d997643e376.webp" id="Creamfrost"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/702c040c7e92bccd54fd5f237cfde2fb69ce6b4ed76fd05e5abbc12e7297dfec.webp" id="Glacibite"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/47950d74b1f26c5f04de2399e04698375e4e8b5c78d80a18260d40c219663d59.webp" id="Grunge"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/5791f3c05295f43c786eb7226a58df5fcb9c1320c6376de90678fd5229db2d8e.webp" id="Chainz"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/1c89c62f72cbbcfb936bcb11881573b28ed087088282d1c3eb636d9c9c7df9ae.webp" id="Wrexxon"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/84d1be2c46b82bb74f26547b0d7c99a19f50f45467b95ebfff806badce5694de.webp" id="Celest"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e4341072f528f23a09deb16806204b29e93b9aed06185bf4c33c2a35a0501ffa.webp" id="Lune"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/3452900e9592c132b72708705bb8b63e8459d940960979a86c209b22f5e0841c.webp" id="Gravion"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e426ac4251de82a7f9cce0e4c5859ef6aea1a63105492c6dcb6098904d8d7313.webp" id="Unicorn Poo"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/b421cf5123a7d28bbbcd2f11613ceb765fc5104e14658c025a751cfa13d9d7c4.webp" id="Sparkle Poo"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/9c74e00ecad7f42086396cfc3a33e268a3e6464c2e882ba2819fcbcb9b600fdf.webp" id="Gem Poo"></div>
+        </div>
+        <div class="culture">
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/b37566d8afd5ee1f971bd5ccbc1d9a9d528b16df39a12b996e9be27d25982a7f.webp" id="Candy"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d9a623228fd0d622eee81e7a14db1c42f10ebec748e98d41a37e0a41790d940c.webp" id="Fizz"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/acbf650ba07194eabc172618b8742a3484a2de4011729a94ecafd948949e8e85.webp" id="Willy"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/1993a128d0fcb6668eb74167c8713da0ff3fd1aa8d22f7cb30557d9d2d9bd263.webp" id="Scribbles"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ffd5cb3a750fdff0778e8922992287d100aa09deaef7a9b5939219be9afd8e00.webp" id="Spindle"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/3999355fdc5e5556c7c0a0e9e51ac3606d8db0297c679bd499387c7bd577b3fc.webp" id="Tangle"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/2b2d4031c60fd55361e228054a28f39fc5bdb71d7c84f2b5b6500262696d5885.webp" id="Gumball"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/627e01b117f0840585dda25e42bfc9ab7ceaf3d786a45c62171b2516cc623cb6.webp" id="Vendor"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a896abc78b2e04fe03b3f3aab231ceb85b08148bd28b5a6c3c58b68612142da4.webp" id="Tank"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/66437dc57465ac13b8b08e96236977cc638bc336e331f865bfbf48458a081cf2.webp" id="Chip"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/0e0b4e333a347dcf3264fccfa992a1bcb720c6eb2dfcabde259c83b4785d67bd.webp" id="Chipduo"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/3e71faf200d568b5a7c37f07be41f677962a4508a1196c83b46c9d765339f3e2.webp" id="Chiptrio"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/070a30c41aa9b1889216c45fc78f278af610b3720de1f2095ecc0c23caaf6094.webp" id="Smoothie"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/3fa5ed25cc04c7099a717d78ba96fd14be1939480b07220c816db712cbbf6558.webp" id="Smooshie"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d176d9f87441012a5ecce8afe8ca3a7045e60b4c81f3498e49b28eb87253ee9e.webp" id="Smash"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/301c04ac0355dab15e57924a1115ef82d15bc5198c7a02cd6bb259ae00442e54.webp" id="Burger"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/2ec62e5fc92835876ff5dc3c8356b0759fc781c5fdfee290143a00e3a0045a18.webp" id="Big Boy"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/5e75e73200a7ae76d890d0aef6b4b053ae95521a8dde3c71fdc42ad82f6c5dc1.webp" id="Bob"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/39dc7db47ee38eb4996f36a667d1061f3d62d85975ccaf6c79b9acb75870052f.webp" id="George"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/41002ea538c032ce4f0688f273508b7f79a0cc1af407953fd961f02f749de5bf.webp" id="Grillis"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6fd4986286064f91dba0e880b150d313fd9b5e602e59752ba8cebd4d62c02dca.webp" id="Roast"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/f98fbc0bf7fcc515202ce5f7bb90ca296f79998527bd84033a29783fd7eb0af0.webp" id="Chelly"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/e2e9dc53360b14fef5de6a676bb556353115536f93cd9e238e6068926ae2087f.webp" id="Chior"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/214ce8fc36818a6b4ddc669b8e9515b976203350500112fc78b79ec122cf6322.webp" id="Chermes"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d5591e8503ac12d704da55088034d1415e7154b5fbef777eb6fa55d2a89caea7.webp" id="Shell"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/241de8ea6f2c4885dc1e6306b86692594cf9f0b7dba4cc7ff6fb37b315ee72be.webp" id="Gleam"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a435a9123f6f4c225910ab83e125e767a8dfd17e8aa0caf360736966ab106410.webp" id="Pearl"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/7a00f511d621068b892c9db8b7a9f4a1100b057f69966cfeb05c93b5fbe452ed.webp" id="Succ"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/dd5a7363a5679d5a27b906cc3597bc6c7d2e5787d8975fc6ab97bd2104c77f8f.webp" id="Mammi"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ec3535b61f672ff344ab04ea5edaade052d14e463339df1189742a83cee7e4a5.webp" id="Fero"></div>
+            
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/8bc9794d083b11b7a7e85bec105e195193191dd80a4c723849d93c138fdd68dc.webp" id="Sketch"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/93d5230dee2eb2c4b289346f45050ad3a51e837e6125778b7474b03f396ecafd.webp" id="Doodle"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/8ef4d89928b07e27e4ff94e5954dd1ff2006cbec5b59a65cd298bdb9f9e405e5.webp" id="Pollock"></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/53d72c26feb5cdc36e71704fc97b630db01cacd5cf43eeece4cb238d2210b45e.webp" id="8-Ball III"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/63222375c3fa2ab9cc2048bab99bd9594cdc9ebb19044b3686feaea5bc73f02d.webp" id="8-Ball Jr."></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/5291183e16ddb6d65e3821655a70e81e02fc3e8ea7427813930f3f2ea5f610ad.webp" id="8-Ball Sr."></div>
+
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/33fb8c387ec7f8acc7cc3c60dc49b8af4b290be428d6de795cc6c4d46904c2ac.webp" id="Hoops"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/753c27121442960f8d55f96feee3787daa4d1cda9c8c0a2731b66b2ecaeeb800.webp" id="Dunk"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/af92bacb5c3dcb2892ab081f24e7e05b5b3a6121c853a42f006b916c57fa2e8a.webp" id="Shooter"></div>
+        </div>
+    </div>
+    </div>   
+    <script type="text/javascript" src="chia-utils.js"></script>
+    <script>
+        let sorted_nfts = [];
+        let nfts = [];
+
+        const _synthetica = ["Boom"];
+
+        async function post(_request) {
+          try {
+                const response = await fetch(_request);
+                const result = await response.json();
+                return result;
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+        
+        async function checkaddress(_address) {
+            const chellyz_id = "col198luy7d64a8zksmseysz9a7mn8dnk590huspz5q8p8p3pglqsn4s6fjpun";
+            let next = "";
+            let items = 100;
+            //fetch nfts by pages of 100
+            while (items == 100) {
+                const get_nfts = new Request("https://api.mintgarden.io/address/" + _address + "/nfts?collection_id=" + chellyz_id + "&type=owned&size=100&page=" + next);
+                const json = await post(get_nfts);
+                console.log(json);                
+                next = json.next;
+                items = json.items.length;
+                json.items.forEach((element) => nfts.push(element));
+            }
+            //sort the array by name
+            nfts.sort((a, b) => a.name.localeCompare(b.name))
+            //append each thumbnail
+            /*nfts.forEach(function(element) {
+                //var elem = document.createElement("img");
+                //elem.setAttribute("src", element.thumbnail_uri);
+                //elem.setAttribute("height", "204.8");
+                //elem.setAttribute("width", "150");
+                //elem.setAttribute("alt", element.name);
+                if (element.name == "Memory Artifact"){
+
+                } else {
+
+                }
+                
+
+                
+                document.getElementById(element.name).style.border = "1px solid #00FF00";    
+            });*/
+
+            console.log(nfts)
+            let names = [];
+            nfts.forEach((element) => names.push(element.name));
+            
+
+            names = names.filter(function(item) {
+                return item !== "Memory Artifact"
+            })
+console.log(names)
+            const findDuplicates = (arr) => {
+                let sorted_arr = arr.slice().sort();
+                let results = [];
+                for (let i = 0; i < sorted_arr.length - 1; i++) {
+                    if (sorted_arr[i + 1] == sorted_arr[i]) {
+                        results.push(sorted_arr[i]);
+                    }
+                }
+                return results;
+            }
+            let dupes = findDuplicates(names);
+
+            let images = document.getElementsByTagName('img')
+
+            for (image of images) {
+                image.style.opacity = 0.3;
+            }
+
+
+            names.forEach(function(element) {
+                if (document.getElementById(element)) {
+                    document.getElementById(element).style.opacity = 1;    
+                }
+            });
+            dupes.forEach(function(element) {
+                if (document.getElementById(element)) {
+                    document.getElementById(element).style.border = "1px solid #00FF00";    
+                }
+            });
+            document.getElementById('duplicates').innerHTML = dupes;
+        };
+
+        const myButton = document.getElementById('button1');
+        myButton.addEventListener("click", (event) => {
+            const myaddy = document.getElementById('address').value;
+            const encoded_addy = ChiaUtils.address_to_puzzle_hash(myaddy);
+            checkaddress(encoded_addy.substr(2,66));
+        });
+
+        const zoomreset="100%";
+        let zoom = 100;
+        let cur_zoom = "";
+
+        const reset = document.getElementById('reset');
+        reset.addEventListener("click", (event) => {
+            document.body.style.width = "100%"; 
+        });
+        const zoomin = document.getElementById('zoomin');
+        zoomin.addEventListener("click", (event) => {
+            cur_zoom = document.body.style.width;
+            zoom = parseInt(cur_zoom.slice(0, -1)) + 30;
+            document.body.style.width = zoom + "%"; 
+        });
+        const zoomout = document.getElementById('zoomout');
+        zoomout.addEventListener("click", (event) => {
+            cur_zoom = document.body.style.width;
+            zoom = parseInt(cur_zoom.slice(0, -1)) - 30;
+            document.body.style.width = zoom + "%"; 
+        });
+
+
+    </script>
+</body>
+
+</html>
