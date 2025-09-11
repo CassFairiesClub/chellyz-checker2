@@ -3,6 +3,7 @@
 
 <head>
     <title>ChellyzChecker</title>
+    <link rel="icon" type="image/x-icon" href="logo.svg">
     <style>
         html,
         body {
@@ -158,9 +159,9 @@
         <div class="universal2"><img src="https://assets.mainnet.mintgarden.io/thumbnails/9ff04228e8fe781898c2ec9c3f86fbc2edb59f8a51194bf249c7202c8cde52a2.webp" id="Seraphim"></div>
         <div class="universal3"><img src="https://assets.mainnet.mintgarden.io/thumbnails/3a37209ef2adf9edad936b88334d806c2b57fb06ffdf9e9f1fb317a43deaf431.webp" id="King"></div>
         <div class="support">
-            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/dc65b6b0b7a3e280cde7bf7a554d75a9c2816e215b403d9618257670af4562d9.webp" id="Node Cache:EB-x2"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/dc65b6b0b7a3e280cde7bf7a554d75a9c2816e215b403d9618257670af4562d9.webp" id="Node Cache: EB-x2"></div>
             <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/af85b2e01937e3b95926074054887e223951636c54e669b87f588e9fc327c8fb.webp" id="Legacy Targeting Core"></div>
-            <div class="logo"><img src="logo.png" style="object-fit: contain; width: 60%" id="logo"></div>
+            <div class="logo"><img src="./logo.png" style="object-fit: contain; width: 60%" id="logo"></div>
             <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/622499b29170c2a8289ac5ddfcccdd7b250ba444978b73ff5525aebdb33dd959.webp" id="Prism Gate Divergence"></div>
             <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/c716ac14614fe925fb69319bad11d37c782e3e97a9ba81136e470bcacea0cb13.webp" id="Violet Cube"></div>
             <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/d4a41049055d6a965f4024c44336ce9700db017ea55bc32de13ec899dc0249c3.webp" id="Healing Spirit"></div>
@@ -290,8 +291,8 @@
             <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/7b4199989dd6c8f5925fc89d8a0789bf28f58787470873aa573bd936ec5eccff.webp" id="Carat"></div>
             
             <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/dbebc7e576ebf73b2b4f5258e3cfbf3ada0e5d339e24a775b2d939ee3ba2f98c.webp" id="Ramesses"></div>
-            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6d4928ebece28158d0947041d38973e769c69d1f3b9ec0ae52fc2eff9a9695bc.webp" id="Ra'messu"></div>
-            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/968c61d5f73f71e0385c6e8d1b65da521a0f588c6dc8f588e023345ec96d6a37.webp" id="Ra'theon"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/6d4928ebece28158d0947041d38973e769c69d1f3b9ec0ae52fc2eff9a9695bc.webp" id="Ra’messu"></div>
+            <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/968c61d5f73f71e0385c6e8d1b65da521a0f588c6dc8f588e023345ec96d6a37.webp" id="Ra’theon"></div>
             
             <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/ad23ff3756f1c6285affbabb9ae4ea549a42af062700e0321d6cd3f665a45eba.webp" id="Ra"></div>
             <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/a2d001492b01f22cb018ce889fc82b0a78a0e442f96be4c76d1ff8ff177df5f7.webp" id="Ravok"></div>
@@ -460,9 +461,237 @@
     </div>   
     <script type="text/javascript" src="chia-utils.js"></script>
     <script>
-        let sorted_nfts = [];
-        let nfts = [];
+        let FirstEditions = [
+    "nft1pftcmn7yvdm2m5lnxv4uye7660x57phgeuzehnnt73h74l447ussffznd7",
+    "nft1pm09wukl23e7u2n5y3n7nev6ymw7d9hn45sk2kwlz0pjryvfl6jsfcpnyf",
+    "nft19q26s8g6whel0hng72emwvytaqqg8mdxcw058gxanz5w2wkp7n9qh7tsjy",
+    "nft196dtycqs432v6lt7pgghglj6q7msxm04vqxl7g34sxle5hqkj76q6gsqv7",
+    "nft1gx7wwel8ler8wcqg99ld9vwujcm8vewwdj38fafphtw5ka36gcaqlvt5gz",
+    "nft1ffwrvh6spy8fpt68z4zka3d5f22v79447vvjyge7zkn7uxpefn6qlg52qd",
+    "nft1df952y4lr0ate04swgcn8jz5sle2fuc9w3jzflp80mxwwn68lxfq4jful3",
+    "nft1dsktqwvwn6qjv0p887qhqw22zz6ljd3tmna3wtvzsdhyt7gw4esqhnszm9",
+    "nft1djfx8ym7fumqdr0hd4y5m39m6qsqzmghfpkr9zyk0xmcfstfa6gslyysqe",
+    "nft1wcwe3s909qvyzcmf5yqgpzxhk3rqr8tg28djgypjde9ne7l2ke8sarvhcj",
+    "nft1se6z6y3jn4ugq42hhfv9ld0k3uw8z2k2jn07kxg0896yk3dx52csqx6xsa",
+    "nft13pnpaca4ecaclttwn3qpqyszs2ucdgrns0hq8wd79evzh985e4dq8ag52u",
+    "nft13rz5wzsyxlvr0ufeydqj0f8m02e2n49ce3p67z75kqxqrm4g4kjssg4yac",
+    "nft13ejsnxcgj4zl8c95zwgxwmf8xtnr3cxhtdxzf6yk25pden5mx6jqdz65l4",
+    "nft1j4p0ue4m23rucn6dv6as9mp92d7zfn32pq7zc7vdv2tjh3kunmsqx67f5p",
+    "nft1nn7l4l568wmdu8d6g3wz2337wfhqwehtn82nzpdv6tlqujff286q2ek0k8",
+    "nft1nh5zftt7yt2g0g3pfad5p0t9pdm795jw3mq02nw76649q4sccfsquu9epm",
+    "nft1ncpk93wvcsqgjnkytx8ftpj28fpv99wecjy5f3td4ktat5fw4sps3fm33m",
+    "nft1kfk7cwd2lfsltua96lf7cn0wrv5lm37w5mzff9ttfrh895lh9ynq6zgm5j",
+    "nft1hyhq93cc35t95wafkhv5vm6vhh0fhtr6y478t8kv6ecurnmazh7sd8l79r",
+    "nft1cywnlt6nfla2n2slep9uw56xfavv34x7x0a3ptx7qettsz9zgt9sx9gwr6",
+    "nft1chnvl4qml5djqfwrqcz9ntnw6jq2zv20zvpqycz7gn8ekn7hjucspqjhlr",
+    "nft1e8wdcl0egahjnekge5vd7svpasfewwxh2k8qth27v0gq2896y2qqafvx6d",
+    "nft1md7kqhtatn2nrwvpthfe3glxp5ve725razeq30wv25nh4yyrm0qszuvegc",
+    "nft1mhxraxc6g938apg7fx2gjvm3xld86f4dp5qmtzldk7adsj57ytgscadasf",
+    "nft1qj5l8t87v5fefe8qtua8ezpu2ukru8unu6xmfl99f2q9dtnlsnsshzswgg",
+    "nft1qchq060zv00x2nlldvagclz25qkjcnn5h4qszu9sruunm48h46zqgylpkq",
+    "nft1qm0yhpfauqlmn9p9sk65n7zyp30t9a7lek09l62ljuryggpefkmsp469rg",
+    "nft1quw4egnsetannxx308f2hwn4m6ayh4xxjnvvelsush8w2k3c6mmqt4m2e6",
+    "nft1rplhr4rjaxq029fcrttcm07dt3xdme0ayykfynpm5zt4acdudhfq0a8ruy",
+    "nft19h7gvx3lw7xvtd7d2u8d38jxc4d4uj8dz8lgcyg9h53l7phad5ssdlm2vk",
+    "nft1fffggh9l2y7vy046krmchzg7rf8f8wlxttr3h4tkxa2rgav47g7qrttja2",
+    "nft1ft3jhzwjavxscdz0jpc9d2ermyqxwpamhvfnnaul5gu7qjrhxjys5vlgrl",
+    "nft1fmr88x4u59avch4gpp7qn90azufuh5509f0wa4jv3jk2wwhuzvgsjnhefu",
+    "nft12uhmg9fv7268hyq6ygesdme7dzxfep6a2qu9xszst35thdnxn08sfc2rjh",
+    "nft1tghj3gluluas36697nzgcervfuttskyez3t067k8w46v3ytzpw8q5dk9lj",
+    "nft1wg7ndealam8zh492tshd9gdlgtgvjxjx6pwjtfnqme6gwcp6sqesa7w59f",
+    "nft1055hjqledkw9z25l99vdes2y36ccvdmts7qsd4n2pamjraruhawsv2ttyl",
+    "nft1jyzf7k4ulr2k3c4h59dnt6gh6v35qammzpezvyphpf0j0vvfn40srjx6yn",
+    "nft15vcmw0vyl3fp3ucmu6sxvgwv79xdkhwscfkr5kqhmfleupld07ascyr0qy",
+    "nft1hktgpzx4znfzwwmyrh5yyhtgyg4h4y2g4m93llcyj87wqvsck70sqrpzc8",
+    "nft1cvsukaet43wmtkr334w0tcj8fe003dgax05dfd7rnh0yfapnp6pshj6fss",
+    "nft1cspjzd4necftx46ac0x0tzqvmwhl6ymvqq9nusecnrzxmnlsy9csn6tlc2",
+    "nft1e2ng79xnjw9y920mn2qca5pjsaj4y3f06qrsykeqvq03cht49u5qhqcqr3",
+    "nft1mqtw9p40se3e2r0x0ufv4y6fa3kqcffvr8qavszrth7h2knqe37s2sy3vh",
+    "nft1m9jy954c9tf402vzfpv6ke6tu544g86vxw456fdn428eprnytyhq0j3cna",
+    "nft1ahufcn0j97r6qu2kwmq9l3lgyt44uhfdfg7n3xu08hqeht2h3y5sv9j9jm",
+    "nft1alehwgs223nq78zfmvk95r5p7l3ueg9kx43rrxj7cnj8nazs93usqq2ezl",
+    "nft17a2vat8as8cn35stkdw68qf7x72ulc6pzw7qffrgpzkj30ntcydsmsd6c6",
+    "nft1lg99hhhn7vsr0l78mh88dcc49gfq6tprqncz2nm0zl99aaahdgds260k55",
+    "nft1qpw6009k5dtaqhpymnql77vcslqzks4cg6zsdvp9ds3zsv6fyf6slgscwz",
+    "nft1qz3qenhzaqfeqyjla06my2h08zgdahzge227u3z66u4umsngp4js8x65y4",
+    "nft1r8ah6c4cnvfzdn0mmy3lagv26g0fw8gfldg58suja0hk7qj0lxnqjs502y",
+    "nft1yxws953sc9xxtu3yaeqk60jskuqd4r5vz2kdu7a34yzkx5ng4wpsa6w3zw",
+    "nft1y09jmehwwtreheuztdrz6azxvek7s20x4ls8mgfkzk2jkltapsmqtxqqpq",
+    "nft19g556935ckmg5yq85cwd2zf9elvkysqlqdl2j3tzsjyxk5xkmh7s3w24sc",
+    "nft1xd4jp0kll6cmwwjqrtd4v7frhh7gnl7a9jdyuqcl9cxtnfu8zkasaw5k4q",
+    "nft1840dyvcny3upff6nlgyjcerv4h9u6xpk97pzekh6tcf9l650j82qjc7l09",
+    "nft1gp00093fsdgcm7t0tfsyhlg0zlpy9pee0tsgatwt449r6pzhdkvqhth8zq",
+    "nft1gj2mdeywuj9ffauat34mmyfkqxt2vah77u9esse76f9qy0ngglkqjdkk0m",
+    "nft12zwxgag9kgm2k48wqqv2ywawtfq8e4ucwha26k8v6d9c7ygwk4qst36kn7",
+    "nft12r4fl6g4c6uwpywgwgghh767v97gtq62k7d08t9rm7jdwludnuwsjm5xmq",
+    "nft125am87g3gczjtkmkut4n5f4vpk9eq4ggy598ldr6r0ug0fc2cgcq8apwhw",
+    "nft1tdkwshu6s4kcs03w0zdzxvuds65jlx9429d96lx93n4vshpqr5yq2hsmhl",
+    "nft1vuhkwpwnhcydf3yu0fqleqh779kx02hzjx4p0aray2jaz7gh8n4se9ydc8",
+    "nft10q8mlgm8hqgn6pt0jnjft0kdx23aswnvr0mtccp8m5vgjzu9jf6saude7g",
+    "nft1sh9qet9echgyjwy47z4s5dak47n69782g84kj9fazvezn0zezl3qah0p0d",
+    "nft1jtuyzs6np5wesy64q8lc8amwqweu9m5kyqj9vg9mq7pveqw23w8qd25juq",
+    "nft1j44rwxrszpk4cj8879c8hrkfj9vqm24kczdygmp87t59l8harjtsa4rtql",
+    "nft15aac645tengztg7f7hwhc3h5ykpq8h5cnxr6yepkzrh7xuljcq7sghkldq",
+    "nft1mj509zqs99tjpc6p3ve2qzd79cj3pgcs376k337tx3pu3p6snp5sjzvwcz",
+    "nft1u0prjgu09ry80587prszpxp4mzr7p3768qa9496jscs4zr0ndcuse9puhw",
+    "nft1a0adt9afj47x4gfvv6ej4x6nag6vj49wta62jk28rr09glrdqjpqjp9js0",
+    "nft17f6p9rck3qcqttlw8gnz4psjjsndp3j8l0e874nahemvxrugyrpq3chevj",
+    "nft1754dvqrkp6tk52jt8apk493dtjfcy7e3xlz7el8qrd9njph5p5yq00vsjr",
+    "nft1p3l2mkaej3uawxf7vte4aqc7zr8ckhy8smmx8xl45pp6fdqq40ksxmqd7f",
+    "nft1z9fp8v8h7dfgpreslkj4fa0ccsz0xhsmjnmk2srtd52k26f4saysn32ad3",
+    "nft1yza94nejgtxpmfg99q2n9hh526a6msk67tnuyt7zy2lx6gtj3dss022a7n",
+    "nft1yc0rmc0yqkk269uw0c3ejndkcwrv4su29x4hwcjm3a654v7dfv4qlw55sl",
+    "nft1xd7ry42mrekvkje7wm84a7cskegjxdxd4kcf2pw7xt0erl24ftrqkr7grf",
+    "nft1xmvszn0cax484htzpn7jc96lpfs2a9kgahptta33yhmk0ev5tcwsrrj27h",
+    "nft1854pc3msvwllus3tvhm29yhrn7dnjvcpztddnyhwr2l0l048m2ysmyaymr",
+    "nft1fq20xzax7td6zhwps6a8xf4ewza4sz6wly2wtzjgqnr4824nm5wsrflz8k",
+    "nft1s5z5t2pdh50mmnhafrkhedtddah0h8sc3l0hr2fm8cr9206ckweqqvpu09",
+    "nft1skktnqmracy0g86eh6v8h964slyfdh8zkeexvztnzzncpzvv9z5qz2nh22",
+    "nft1305y9wpmrc58hzurz6vq8h4j5c88p5ef0vyyur0egrstvwgrsn5ql7f2rs",
+    "nft1j5l245lx8j44ydefmk986rhlq2c0e5w5cr54tsdnrmxuvu9h6wcqlwq89t",
+    "nft1n2tf2szp5lhxduv8cmxhrx8j6c4d45xz4ndc6jg8w84pufncffkqaqyjsn",
+    "nft1krqnhw7wetmm4us97cugvmgntwtrf6954xdlknrjxeyc9pms3jpqg0ysmq",
+    "nft1k77q0fvpuvu4lzaemeck7ycydde7qwd0aa4gvex574g8sydn09eqyvtlw9",
+    "nft1hq20dxaxnc3uagunutcr0tsxs6auqwlku8vd6snuvkn09h4968qq5ld6nl",
+    "nft1hmt9dedgkpqgsrlqr7wakl3075jy0k3twluhd6rsk0myyksryzyq0lxmf2",
+    "nft1c5kvj77dkadnf3naujtj2nzt0hqz949z28g7ta0yxn2w42e87pmqknr8ar",
+    "nft169afuptuw0ftllmal9hs3kx2kpz7qxrn4drj8rh89x2k7vcu3rds5t8hja",
+    "nft1mu4fcrmyynlz77c8hjakgecm4kuu2r80ph6sa3g0wjz8maqjx4gstnm2qn",
+    "nft1a9tm4sezualkk6p955t7c54n5z37ker2lv904audkfpul706l6xqavvvwv",
+    "nft1lq0njawn0kenecumkzrdsxuaawxha7a88klscttdfvu77d7vt2ksud5auv",
+    "nft1lhqslefngn36t6rplzczt992y7ulztel456jsk8lv55wk0lm4qpqj0y8fg",
+    "nft1levv8fxg2legjs0ly00ne8v78d3sq5um6gkll8smt2kempy0pkgqaqg6lq",
+    "nft1lew8tkfhkhy40ggt43muqnury4ygendw3rlzha2lfz29jed2zvgsegenzw",
+    "nft1r4ddy7qpmcyga5hnt6am2dlql32qzh8en0y99qezqz66sdasuuuq5w5sv0",
+    "nft19ntpwqtzul5c345g3payw8ueanna3cljczeatw8wvcp8xns8l0cqrtyh4d",
+    "nft1f9s3n4rczcv5l508nqk6wwux6gqgc5nn6h5slcm9v83n3p0khd7sql0cm6",
+    "nft1v4v2v5nyruxh78z3hlas2k9uuaay6lvzrcmh83hcg4k7vk6vwquqn0f872",
+    "nft1vc7fdhxthqckxe26zs852mq47q3hzxe242xe79rpskn6c532e62sh5vkff",
+    "nft10ez8860h7kw66qr95zhu6gqdrtxashlm7alp32p7kdd8vgxc0t6s9qcwtu",
+    "nft10ee84uqc9fhy5weczvwal96dzdnlak7xt877a5v00emldtlmtr0sqj7cye",
+    "nft10mn6shgm43he5zdkal94jc05w0fx3q9y2ayhlk97pkjeelzxxsls3k2r00",
+    "nft13v82tdr3wp9jpputllvqd7gy2guapmawgl966235ecv63wk6s4asm9dzpp",
+    "nft1jvd29xmtvhvgs8azp09pcasqg5lz459dphkfep5gwqn5nvw7xxkqc4nv8r",
+    "nft1jur759phngvws738mq4ph3v8mfqc7vfmgzd9tcfvx2vek9setsjq57smfu",
+    "nft15y9lghetc3zx7ttk4a9uy6km3rrgp9949fwaap80zvw0qftmadasxpsqyr",
+    "nft14d573xxag9gcm4u62yg48ej2awh52q4qjz8hqc43yveaa6p20glqp7kzf5",
+    "nft1kg4r8rgk4u2tncm8l8ka2tslcxldfxn2e08slkvtz0mshvtml5vs0k4sh7",
+    "nft1h8e53p6laxj8whj0rr3qjr3hqvuqa48r8v4hw0ede5sy8ge0a95s00wez8",
+    "nft1hfn6k5sfmey83dx7kzl78wcequa8yhsdp9u208c90tu6zkv9ypasnaclla",
+    "nft1hv5tdm6mnu9zzxaf0qv7wensga8nr0qhrrfzjz0c5mn7sz8cvtzsl969h7",
+    "nft1e86ggqwc8snnlgslehqqay5u5c3jy8g4yqzgdshs6lcl6u2rjxks2qwl74",
+    "nft16k3dxf6xvg96fxwh6fmmd66vzgtp5x8qh6ar5uhhnlmfmuwgjzmsd33rlv",
+    "nft1mgar5av7659feaua7ed5hmm4w3wf43czycddsdcyptsqkx2d8tdqhgx3d8",
+    "nft1m0emtgjn833wdtz9jhzcrvrdsfufne4eqmdse242sgqekyuhters5l823q",
+    "nft1mkdaja0d2yk64n62m42hwc0eym8hvyv3zcrk8h5zhm9q94c9zegquln7ka",
+    "nft1mm2vkeg5y2t0dk3f3g8shev43zfggxh2ukzq6nym6mhju3264jusgjsguf",
+    "nft17a4renjlm4rh8wrfwkzgxr0f2qzt2c834hzy0lw02nl6wsstvd4q5hakd2",
+    "nft1lgwmyr2pupdmccl9ltz08t7c0dwtn39cn8qzj5na75trznku3llqmgpket",
+    "nft1qfkd90ju55jv2cvl6uhqc55r7gf2v8gqf23atkdy4px5r94ztevq62cxny",
+    "nft1z0nq4f6fxeu2z7e9hpgv5dh5prpgeyakh04z8967mljpjk67qcuszdmp32",
+    "nft1zawcq79lacpxwmn4cfeswt5rh9a5gqv4nvn374qlsyjclgd2dmds0uhcqm",
+    "nft1rj2jajh4v5e22j9plxkhcwnv0dz3evj32ytx629ner6ccycvfzsqmh0kpv",
+    "nft1rkuctus0f525nu6vggl9earpsdyzh92htpd75w5q70nvfgjm3m2qwe0klz",
+    "nft1y0mvf0v02pxse5ct07emcfzz84w8fzytvjpf29yfhlc7e2tuks6spju00c",
+    "nft198t6kwts9lrfa32eq0pgj0cpzg64640v8a90hzaumdru2sklksyqzsetvj",
+    "nft192jjql9tz06s5d0mgspyfkvstawgf6emhaaz9k7xd0v2mdhcevuqcgcms3",
+    "nft19nxyt90ju7yprrx5d6w6uqdm46qqxxf432u6dqfmu6qsyk93a8vs82j8uv",
+    "nft18z3kvls8l8x9tz5k0jf8q5y82ym04pc0c2v3sxl65cgsmh2c967q2nn4sx",
+    "nft1g0y8ypaysqgsl2at0hhemz2ddjqf4zyzen42mvujhf6tmcz2kawqx6urrj",
+    "nft1tgsnfq78uz2sdmsx2frtjxrue9me66hjq87wyv8us7m00yn6k6js3r63ht",
+    "nft1vzx7erlyrwaevl2mlqjmvc5thes3f724lvdvdedefjts3fleawmq2588tz",
+    "nft1v75kwj2dt60605exxmzmv2h6l29mcceta8h8wrc8u2q7efpmd7ssa7lqaf",
+    "nft1dyl728t9m0v247g3l9y94zrs82qughxlejpr2j8h75lyulzw44sspvk6qa",
+    "nft1w9erv9kgg4jmr49ntzy6f0thl28tmm6kunqkxyl7xkg2q3743lzqasds0l",
+    "nft1w0vx8kvvg7xstr92rn90ftxy7c98eyyvzxkvfzs6zmwqqqf0l05sjhjtrl",
+    "nft1sx76vpfcyq6s2taaslmdjh2mthn78p44mtz584l4h7h7wn40qtksgsseea",
+    "nft14unwepw3f7qnvr7vdlzy9v7hkzf7kq0fuklpkr2tncl8z3l5djkq8jw4f3",
+    "nft1hy0fun092xme9l56x4jc7f9hrjlpjtysq7gl8exyxu74r59h6zzsp4hrrj",
+    "nft1hdqruujcjuv9crsgcq7yga43s79749v2kue63u9jqgyerwmujxsqqres27",
+    "nft1cu9mdkzh2wtne8qxuztvnzkuf83pvut5trmtyrxrapjhrff3fypqx80n4j",
+    "nft16c32xtdhtsup6h7p8zcp4q6pqkn25usfwvetevsgtapqyh3mc8ss7mpd6g",
+    "nft1a8w4cueazz6nsxrsvvvew5hgld2janetqz2yhyvl7efv2gvvt67ssz4cft",
+    "nft17pskmpmq3qqk058aeh6964adsmepszacqay3zqu7r9kpsuv0qyfsw4m4cr",
+    "nft1qrwq2kxputpwv2f56f9lprhalzw2xq9jat97z7pgcvul23uxpjhsmx4vvp",
+    "nft1q63jgh8g3ta73gvus2ktq5wuad3rakawd6t2tjxfgflm2regmxtspue5w3",
+    "nft1pnvpresvpwznfzves47uk0s8uvlhlp93ncw5e0uscndecz9ur9lqm6s3we",
+    "nft1pl4wuau8t29qt63ksqnc5jkgrcwuxs6c4jdz6zs5rp22pr9sw33q0kfzxd",
+    "nft1r8xxnptkqy20rpwxkv5fddtrqgqj8n50066x9cq6pmm9ms2ymxrq5vpn8z",
+    "nft1x5h9vyt90k66g4r4tyj3tjfcyrys7mxegpf75gushu9uprzngp8sv57kqa",
+    "nft18cjzr8ff4sye6xyzq4du2yh3hh6gflm9970q9nukxmgejv6tulgs27m8ck",
+    "nft1tqrh5nnjwzyjkflftf6uy7gcm00km980a0nvrwzll6jhylk4czxqfq8hzh",
+    "nft1t5qye8wy4x4t7c3ylj43nnj68tdg3gs3lz7gfclejj0m5k5kjw4qlntgc4",
+    "nft1vvzawex9pg5s0pg8erlq5kuh75fydm2spa6neyckln79kghup0cs9mu7rr",
+    "nft1v72w3qkrhg4ssqyanvy0js636v86xg8deltpxgtc9v9r937c5szqumxxt3",
+    "nft1dycpnzl3wnpttydvq7yulsj9y7uy0nntz8evj8rlx6qye7c2s44qrfjf0g",
+    "nft1wklu0xnuld8sjsnurdc86e5yvhlwxwdzy0nu429mgv6gtryp636szh3x5v",
+    "nft1w77s282sf927tgg0cqph5t87htr4n3mcelpxp88nxfnnnac7lhnsd8tnmr",
+    "nft10j6cl8fmwvf6973zwc0gvfz52996np2ll8vkyq5m48zewcrm5essz3qyh2",
+    "nft1s89j4v94nqgkm64ppc92ur74prjglgc53s5j5cy0yp9yj4tt0v9s24jrq6",
+    "nft137dy4khgq0jk745k8rjlns99r2jzymdgm3cc8zun4t8hc0ddjmuq7ua7nd",
+    "nft1jzw5d6l6p762p7et7nur3ff9lt0s3ng3ny2zwpkz00x0y59mdftqekwk4l",
+    "nft1j70zlgernv6aqwqxmlnmsl54pwswmt6et2cfv0xf2mjauc06jvnq9rnpe6",
+    "nft14nwcerw4mp9mayw5sz20zq0tnx7pqlzmwpajad3a2lcsah3e9zhsrvax4m",
+    "nft1kdgm0y4hwls2x4gdeercq50n53n76jarc36llc5x36gty0qzr53qgcjmf4",
+    "nft16k8ezr6mp56v8s23ztq737a78a6hk7mqja8wpm0ty4madwzklw0qqy9czd",
+    "nft1m20dgyu0h0n9nrfzp99a8tmkngv79j7wa0f8ukjavz0kd76a75hqm3ryzp",
+    "nft1mtzgh687p8kcyq4mmed9pxwx0ckc78egl5mu2tge4zawk0xq7juqfq049y",
+    "nft1u9qvjmcrh8h6wtvvj0usl4fs0qmpp06k4wzr44tcl2va8q5xstgqju4zp9",
+    "nft1q8x0pd25vu7keca44nzqh2u9ycz7dz8meqke8danjagegewhqghs2fyvjj",
+    "nft1yyzj8hhgyczj3k2x207k2stst6quat8pfvdk33ea303plat8sucs95st6x",
+    "nft1ygfxeyjhedjw5kqyxzgxx83uvw5e2ggaqpqdgfz55qf02trkvlmqczksv0",
+    "nft1xgn0v2v2hzlmw9wqfpmtu9mf8qlfvq48hjt0ypmwt809yk45lu5qmyg434",
+    "nft18h2ssv708cdkjnen83lsvj4sct2yc8ezk3edljqfv7zdq24dd4hsac29q7",
+    "nft1fyvetqrpyclanm6xx4cr9p95fedszs74ydh5kuuc60rx76xtun6sv4cywn",
+    "nft1fva2h0m0nhuueatwnujeez3v7k7v7f3rqmucxdhnlg9xufftu2xq5p5fag",
+    "nft1fe6qqyv08pz8v0ja829r8xz47hafj52klkf37y9tjtma9zz0cu4qkpyv4q",
+    "nft12stp7hrnkwqavrqxf7sy426gq873yrq6vv907z3rre0awwunyu6sptx432",
+    "nft1vax7r4g9c29kuu8d9an3fx4vv36n3lk777slmnjy36jqn509gedsge4m2g",
+    "nft108z5pn46jxtsalwqjmtru29m9dh9przxlsnt7h4qa4nu8vkf607qudhms0",
+    "nft1s4mp3mdv25qlkzr8ltdrswh2lyfyh34r59ddq0dcxjze97djrs2q6909xn",
+    "nft13s0yk5egxdw0pr6zrn0mgyqtfs6vgfps8z4rvmlqddv980sk3smsct05gf",
+    "nft15szxnesp2lfpskmgmr83xwdx4utd2epkvzptvru70k98qyss7n0sqaamc2",
+    "nft155p5zfegf24zt8phxj3ujwrcvaj30cgwhp5n0w2shyzkjeazmu0qcca603",
+    "nft14ravqfdanav266un9j0f3fnv48kjtve5wkxhyckyljs8fhzss0hsd4cc9u",
+    "nft1kh6cuzdmwzm9k3q0w5w67wpalvy63mysl3g66ct9p5d4qwxv0sxqcteuq8",
+    "nft1ce4xaxclafcrdf7vqt4d7lgzzh7jqr4gncw856ay0xraddft66xscp63at",
+    "nft1690rqty3gz7u7l06ll0r7wzsx8ejs2v00su923ewzxqeu7dxuznsesxfwk",
+    "nft16cwvwc6v2tfyeknl5d0sjtchu4u6pdtpkt3at9xzlthghp4nh9gqc4lwun",
+    "nft1mxy3fpnjheaa5r7aqcw76kkclhd82hkq6rp53jgl8ltc7yggvnwqah28h6",
+    "nft1u99wfv09q2segz6k8h5rmlfn5flxd3z48ur9kv7fuxkts52hxl0qcynnuz",
+    "nft17hc4a35va5aqwznsxk8sxq5z9uvannmv8ukdr2frjwdjkvvpv2rqx0vvlx",
+    "nft17c9lyr2wax4myumnym02xmcqdx3y7nmvv5rxxnnt2xu2krr0cjpsznup9v",
+    "nft17lzyelwd2mcx3dzu7y97f7tgavw5x7gr6hg7k03ehvh8rasxkv2qchka73",
+    "nft1pg9y2294aml66g6fhnq2vsw4dret74wftjasw5h8crkhfcmdc5jq82unhn",
+    "nft1zhrx7mk3txpxpre2sq2036xkng4cna9cwfgqlqffn7zdjfvxswxssnup8f",
+    "nft1yma4ukylm4sgpz08jf3dfzg0djzn6y4nfdl7jw0xek2j4xdnf9eqwu3nw6",
+    "nft199g8qnnnp99xul36f5t87lkqdjnrn0hw9smttq0qapk6rlrat5vs22eenl",
+    "nft19t85t8pg0k77dcc6ykqgdd0mxxuqw4al7hr0pvk0adeg7ydfcdzs438x2e",
+    "nft1xn824vd68aq6au5c5p4unpavlr675sgvyw768q4540s2a8dd3q7sj8m2s6",
+    "nft18pxf7sv484xtf20mjtekpmkn6l04qlv9hkayv6ffny5ftcwlv09s3nf83j",
+    "nft1tsrjf2swjk7yy572yk4l92x5ag9s7xtm8m299cwul63vqs3nd40q7cumkn",
+    "nft1tjm5dafer48nwd2mslrwth3k7w8l386er23l52ha3nxlvrwq4k3s84dmlc",
+    "nft1tnk3c3rgdqlht9y9w3d8xuewnefze5du4hjyu6gs9558az8qxazqjxfltf",
+    "nft1v0mk33hz77cp9yngcvq7nwvjyrtlsa4d37zg0saajq3ysvhzykfqlwjeds",
+    "nft102jmt7cva9y5vvrdm64q3wy4m84s5hlvp9y44uhp67dkw2p8239qxm22r2",
+    "nft10ve7yew9drs2te64pkmhuaawj0lgc09g8qr7w6g7q2fxmdvcvexs7cx7lp",
+    "nft13xulgmd3w6jqmspum9mc2mz7g7pxdwmgja97fkfz45v6ex7g8v5qayuft2",
+    "nft1j9ugmrhpt9l8079gnj73hlrcjdm8zl02s36tmj6ytylefcnw3m8q3w2fjq",
+    "nft1jgt65l68ggecwt09lrwrjnt4lhcxdak5p03vh0edx480x7fjwztqh0stua",
+    "nft1k7k8q3rmzgly6ycsvgycphhtp5vp95kmjfztxxvhhweve9nm2v0qkqwfus",
+    "nft1cz2crtyarc77qnz0xxfkkzpd40jgcmzflcjz3d07l0emcugg90nsrdzg00",
+    "nft1ep76pguctjx9j8r7w4zrl22gt9rl3k2r326yutvuvq2j9v0kyceqtqf3gx",
+    "nft1e9ze5y03cagnc4zdlazerzegpltrxjwcchl9k0wkvw3tc70gncesdq2raq",
+    "nft1mmyr6xmvsw4vs38amzdurnq4y92fgdh38fw0jgre6v99kwg4t2ls96evqx",
+    "nft1732tu4lhlz9kdqy0lug9kc4h33p8vwr8q94szzrgkntvzu44a6msumn2ud",
+    "nft1lk392kl9cdjeflnctd720c720czq6kqu7yecwhyerr6ewlp096fqnrfzsn"
+        ];
 
+        let nfts = [];
+        let short_nfts = [];
+        let names = [];
+        let counts = {};
+        let firstEditions = [];
         const _synthetica = ["Boom"];
 
         async function post(_request) {
@@ -479,7 +708,6 @@
             const chellyz_id = "col198luy7d64a8zksmseysz9a7mn8dnk590huspz5q8p8p3pglqsn4s6fjpun";
             let next = "";
             let items = 100;
-            //fetch nfts by pages of 100
             while (items == 100) {
                 const get_nfts = new Request("https://api.mintgarden.io/address/" + _address + "/nfts?collection_id=" + chellyz_id + "&type=owned&size=100&page=" + next);
                 const json = await post(get_nfts);
@@ -487,9 +715,102 @@
                 next = json.next;
                 items = json.items.length;
                 json.items.forEach((element) => nfts.push(element));
+
             }
             //sort the array by name
             nfts.sort((a, b) => a.name.localeCompare(b.name))
+            let actions = nfts.map((element) => checksupport(element));
+            var results = Promise.all(actions);
+            results.then(data => checkdupes());
+        };
+
+        async function retrieve_special_name(nftid) {
+            const get_nftid = new Request("https://api.mintgarden.io/nfts/" + nftid);
+            const json = await post(get_nftid);
+            console.log(json.data.metadata_json.attributes[3].value);
+            return json.data.metadata_json.attributes[3].value;
+        };
+
+        async function checksupport(element) {
+                let name = element.name;
+                let nftid = element.encoded_id;
+                if (name == "Memory Artifact" || name == "Flash Relic") {
+                    const get_nftid = new Request("https://api.mintgarden.io/nfts/" + nftid);
+                    const json = await post(get_nftid);
+                    let special = json.data.metadata_json.attributes[3].value;
+                    short_nfts.push({name:special, nftid:nftid});
+                    if (special.substr(0,7) == "Node Ca") {
+                        names.push("Node Cache: EB-x2");
+                    } else {
+                        names.push(special);
+                    }
+                } else {
+                    short_nfts.push({name:name, nftid:nftid});
+                    names.push(name);
+                }
+        };
+
+        function checkdupes() {
+            let images = document.getElementsByTagName('img')
+            for (image of images) {
+                image.style.opacity = 0.3;
+                image.title = image.id;
+            }
+            short_nfts.sort((a, b) => a.name.localeCompare(b.name));
+            for (const num of names) {
+                counts[num] = counts[num] ? counts[num] + 1 : 1;
+            }
+    console.log(counts);
+            names.forEach(function(element) {
+                if (document.getElementById(element)) {
+                    document.getElementById(element).style.opacity = 1;
+                }
+            });
+            for (const [key, value] of Object.entries(counts)) {
+                if (value > 1) {
+                    document.getElementById(key).style.border = "1px solid #00FF00";
+                    document.getElementById(key).title = `${key}: ${value}`;
+                }
+            }
+            short_nfts.forEach(function(element) {
+                if (FirstEditions.includes(element.nftid)) {
+                    document.getElementById(element.name).style.border = "1px solid #FF0000";
+                }
+            });
+
+        };
+
+        const myButton = document.getElementById('button1');
+        myButton.addEventListener("click", (event) => {
+            const myaddy = document.getElementById('address').value;
+            const encoded_addy = ChiaUtils.address_to_puzzle_hash(myaddy);
+            checkaddress(encoded_addy.substr(2,66));
+
+        });
+
+        const zoomreset="100%";
+        let zoom = 100;
+        let cur_zoom = "";
+
+        const reset = document.getElementById('reset');
+        reset.addEventListener("click", (event) => {
+            document.body.style.width = "100%"; 
+        });
+        const zoomin = document.getElementById('zoomin');
+        zoomin.addEventListener("click", (event) => {
+            cur_zoom = document.body.style.width;
+            zoom = parseInt(cur_zoom.slice(0, -1)) + 150;
+            document.body.style.width = zoom + "%"; 
+        });
+        const zoomout = document.getElementById('zoomout');
+        zoomout.addEventListener("click", (event) => {
+            cur_zoom = document.body.style.width;
+            zoom = parseInt(cur_zoom.slice(0, -1)) - 20;
+            document.body.style.width = zoom + "%"; 
+        });
+
+            //checkFirst();
+            //console.log(FirstEditions);
             //append each thumbnail
             /*nfts.forEach(function(element) {
                 //var elem = document.createElement("img");
@@ -505,78 +826,7 @@
                 document.getElementById(element.name).style.border = "1px solid #00FF00";    
             });*/
 
-            console.log(nfts)
-            let names = [];
-            nfts.forEach((element) => names.push(element.name));
-            
-
-            names = names.filter(function(item) {
-                return item !== "Memory Artifact"
-            })
-console.log(names)
-            const findDuplicates = (arr) => {
-                let sorted_arr = arr.slice().sort();
-                let results = [];
-                for (let i = 0; i < sorted_arr.length - 1; i++) {
-                    if (sorted_arr[i + 1] == sorted_arr[i]) {
-                        results.push(sorted_arr[i]);
-                    }
-                }
-                return results;
-            }
-            let dupes = findDuplicates(names);
-
-            let images = document.getElementsByTagName('img')
-
-            for (image of images) {
-                image.style.opacity = 0.3;
-            }
-
-
-            names.forEach(function(element) {
-                if (document.getElementById(element)) {
-                    document.getElementById(element).style.opacity = 1;    
-                }
-            });
-            dupes.forEach(function(element) {
-                if (document.getElementById(element)) {
-                    document.getElementById(element).style.border = "1px solid #00FF00";    
-                }
-            });
-            document.getElementById('duplicates').innerHTML = dupes;
-        };
-
-        const myButton = document.getElementById('button1');
-        myButton.addEventListener("click", (event) => {
-            const myaddy = document.getElementById('address').value;
-            const encoded_addy = ChiaUtils.address_to_puzzle_hash(myaddy);
-            checkaddress(encoded_addy.substr(2,66));
-        });
-
-        const zoomreset="100%";
-        let zoom = 100;
-        let cur_zoom = "";
-
-        const reset = document.getElementById('reset');
-        reset.addEventListener("click", (event) => {
-            document.body.style.width = "100%"; 
-        });
-        const zoomin = document.getElementById('zoomin');
-        zoomin.addEventListener("click", (event) => {
-            cur_zoom = document.body.style.width;
-            zoom = parseInt(cur_zoom.slice(0, -1)) + 30;
-            document.body.style.width = zoom + "%"; 
-        });
-        const zoomout = document.getElementById('zoomout');
-        zoomout.addEventListener("click", (event) => {
-            cur_zoom = document.body.style.width;
-            zoom = parseInt(cur_zoom.slice(0, -1)) - 30;
-            document.body.style.width = zoom + "%"; 
-        });
-
-
     </script>
 </body>
 
 </html>
-
