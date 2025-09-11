@@ -155,6 +155,10 @@
     </div>
     <div style="display: flex; justify-content: center;">Duplicates in Green, First Editions in Red</div>
     <div style="display: flex; justify-content: center;">Hover a Chellyz to check its name and the current number owned</div>
+    <div style="display: flex; justify-content: center;color: grey;">Open the browser console for a full nft_id list</div>
+    <div style="display: flex; justify-content: center;color: grey;">Soon : compare 2 addresses/dids & identify possible trades</div>
+    <div style="display: flex; justify-content: center;color: grey;">tips : xch1mxuzqqte2kgu85he6jv8k52qcpynkfz9na4v69203y54uejgk3rsh6d2yr</div>
+    
     <div id="duplicates"></div>    
     <div id="grid">
         <div class="universal1"><img src="https://assets.mainnet.mintgarden.io/thumbnails/96609a9d554257ac573f8e7302f92c332c93b755ceba5c25a1fac20557190d08.webp" id="Baby"></div>
@@ -460,6 +464,7 @@
             <div><img src="https://assets.mainnet.mintgarden.io/thumbnails/af92bacb5c3dcb2892ab081f24e7e05b5b3a6121c853a42f006b916c57fa2e8a.webp" id="Shooter"></div>
         </div>
     </div>
+    <div style="display: flex; justify-content: center;color: grey;">Cass 2025</div>
     </div>   
     <script type="text/javascript" src="chia-utils.js"></script>
     <script>
@@ -713,7 +718,7 @@
             while (items == 100) {
                 const get_nfts = new Request("https://api.mintgarden.io/address/" + _address + "/nfts?collection_id=" + chellyz_id + "&type=owned&size=100&page=" + next);
                 const json = await post(get_nfts);
-                console.log(json);                
+                //console.log(json);                
                 next = json.next;
                 items = json.items.length;
                 json.items.forEach((element) => nfts.push(element));
@@ -753,6 +758,7 @@
         };
 
         function checkdupes() {
+            console.log(short_nfts);
             let images = document.getElementsByTagName('img')
             for (image of images) {
                 image.style.opacity = 0.3;
