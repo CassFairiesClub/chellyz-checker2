@@ -756,7 +756,6 @@
             let images = document.getElementsByTagName('img')
             for (image of images) {
                 image.style.opacity = 0.3;
-                image.title = image.id;
             }
             short_nfts.sort((a, b) => a.name.localeCompare(b.name));
             for (const num of names) {
@@ -810,6 +809,10 @@
             zoom = parseInt(cur_zoom.slice(0, -1)) - 20;
             document.body.style.width = zoom + "%"; 
         });
+        let images = document.getElementsByTagName('img')
+            for (image of images) {
+                image.title = image.id;
+        }
 
             //checkFirst();
             //console.log(FirstEditions);
