@@ -694,12 +694,6 @@
     "nft1lk392kl9cdjeflnctd720c720czq6kqu7yecwhyerr6ewlp096fqnrfzsn"
         ];
 
-        let nfts = [];
-        let short_nfts = [];
-        let names = [];
-        let counts = {};
-        let firstEditions = [];
-        const _synthetica = ["Boom"];
 
         async function post(_request) {
           try {
@@ -712,6 +706,11 @@
         };
         
         async function checkaddress(_address) {
+            let nfts = [];
+            let short_nfts = [];
+            let names = [];
+            let counts = {};
+
             const chellyz_id = "col198luy7d64a8zksmseysz9a7mn8dnk590huspz5q8p8p3pglqsn4s6fjpun";
             let next = "";
             let items = 100;
@@ -726,9 +725,9 @@
             }
             //sort the array by name
             nfts.sort((a, b) => a.name.localeCompare(b.name))
-            let actions = nfts.map((element) => checksupport(element));
+            let actions = nfts.map((element) => checksupport(element, short_nfts, names));
             var results = Promise.all(actions);
-            results.then(data => checkdupes());
+            results.then(data => checkdupes(short_nfts, names, counts));
         };
 
         async function retrieve_special_name(nftid) {
@@ -738,7 +737,7 @@
             return json.data.metadata_json.attributes[3].value;
         };
 
-        async function checksupport(element) {
+        async function checksupport(element, short_nfts, names) {
                 let name = element.name;
                 let nftid = element.encoded_id;
                 if (name == "Memory Artifact" || name == "Flash Relic") {
@@ -757,7 +756,7 @@
                 }
         };
 
-        function checkdupes() {
+        function checkdupes(short_nfts, names, counts) {
             console.log(short_nfts);
             let images = document.getElementsByTagName('img')
             for (image of images) {
